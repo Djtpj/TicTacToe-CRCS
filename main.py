@@ -25,8 +25,8 @@ def print_board(board):
 
 
 def loop():
-    global player_one_turn
-    global board
+# global player_one_turn
+# global board
 
     piece = player_one_piece if player_one_turn else player_two_piece
     player_one_turn = not player_one_turn
@@ -68,6 +68,9 @@ def check_win(board, piece):
     board_slice = []
     for i in range(board_size):
         board_slice.append(board[i][i])
+
+    if board_slice.count(piece) == len(board_slice):
+        return True
 
     # / diagonal win
     board_slice = []
